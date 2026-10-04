@@ -1,0 +1,43 @@
+# Copy to ~/.config/turzx-metrics/config.toml and customize locally.
+# Optional integrations are disabled by default. No account credentials here.
+brightness = 55
+orientation = "landscape" # or reverse_landscape if the image is upside down
+interval = 2
+page_interval = 12
+llm_interval = 60
+environment_interval = 30
+
+# Enable after installing/configuring ai-usagebar or a compatible JSON reader.
+llm_enabled = false
+llm_command = ["ai-usagebar", "usage", "--json"]
+
+# Set the physical interface shown by `ip -br link` to enable RX/TX.
+network_interface = ""
+disk_path = "~"
+
+# Empty host disables the SMB probe. It does not mount anything.
+nas_host = ""
+nas_port = 445
+nas_mounts = []
+# Example: nas_mounts = ["/mnt/nas/documents", "/mnt/nas/projects"]
+
+# Optional systemd user service + Unison log. It is never started by the monitor.
+sync_service = ""
+sync_mount = ""
+sync_log = ""
+# Example: sync_service = "my-sync.service"
+#          sync_mount = "/mnt/nas/projects"
+#          sync_log = "~/.local/state/my-sync/sync.log"
+
+# Command must emit JSON: {"class":"active"} or {"class":"inactive"}.
+# Arguments are executed directly, without a shell.
+vpn_status_command = []
+tailscale_enabled = false
+
+# T3 integration reads state counters only. Its internal schema can change.
+agents_enabled = false
+agents_db = "~/.t3/userdata/state.sqlite"
+
+# Empty paths select an installed monospace font or Pillow's built-in fallback.
+regular_font = ""
+bold_font = ""

@@ -1,0 +1,19 @@
+# Reference template. install_user_service.py generates absolute checkout paths.
+[Unit]
+Description=TURZX Metrics - hardware, LLM and environment
+After=graphical-session.target
+PartOf=graphical-session.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/path/to/turzx-metrics/.venv/bin/python /path/to/turzx-metrics/monitor.py
+WorkingDirectory=/path/to/turzx-metrics
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=12
+NoNewPrivileges=yes
+UMask=0077
+
+[Install]
+WantedBy=graphical-session.target

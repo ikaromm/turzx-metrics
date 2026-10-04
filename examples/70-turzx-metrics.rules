@@ -1,0 +1,2 @@
+# Only this 3.5-inch Rev A device; access for the active local desktop user.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="5722", ATTRS{serial}=="USB35INCHIPSV2", TAG+="uaccess"
